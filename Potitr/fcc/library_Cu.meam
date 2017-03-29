@@ -1,0 +1,8 @@
+ # meam data for fcc (Phys. Rev. B 68, 144112)
+# elt        lat     z       ielement     atwt
+# alpha      b0      b1      b2           b3    alat    esub    asub
+# t0         t1              t2           t3            rozero  ibar
+
+'Cu'        'fcc'   12.     29           63.54
+5.169204899   3.83   2.2  6   2.2  3.62    3.54  0.94
+1     2.72     3.04    1.95     1  3

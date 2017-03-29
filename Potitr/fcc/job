@@ -1,0 +1,76 @@
+#!/bin/bash
+
+latpara=3.62
+latticename=Cu
+libraryname=library_Cu
+currentdir=$(pwd)
+potdir=/Users/masud/MD/potentials
+bindir=lammps
+rm $currentdir/cohesive/latticefile.txt
+rm $currentdir/cohesive/latname.txt
+echo "  $latpara  " >> $currentdir/cohesive/latticefile.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/cohesive/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/cohesive/jobfile_lammps.sh
+cd $currentdir/cohesive; ./jobfile_lammps.sh
+
+rm $currentdir/phase_transition/bcc/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/phase_transition/bcc/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/phase_transition/bcc/jobfile_lammps.sh
+cd $currentdir/phase_transition/bcc; ./jobfile_lammps.sh
+
+rm $currentdir/phase_transition/sc/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/phase_transition/sc/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/phase_transition/sc/jobfile_lammps.sh
+cd $currentdir/phase_transition/sc; ./jobfile_lammps.sh
+
+rm $currentdir/phase_transition/hcp/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/phase_transition/hcp/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/phase_transition/hcp/jobfile_lammps.sh
+cd $currentdir/phase_transition/hcp; ./jobfile_lammps.sh
+
+rm $currentdir/ev/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/ev/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/ev/jobfile_lammps.sh
+cd  $currentdir/ev; ./jobfile_lammps.sh
+
+
+rm $currentdir/surface/100/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/surface/100/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/surface/100/jobfile_lammps.sh
+cd $currentdir/surface/100; ./jobfile_lammps.sh
+
+rm $currentdir/surface/110/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/surface/110/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/surface/110/jobfile_lammps.sh
+cd $currentdir/surface/110; ./jobfile_lammps.sh
+
+rm $currentdir/surface/111/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/surface/111/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/surface/111/jobfile_lammps.sh
+cd $currentdir/surface/111; ./jobfile_lammps.sh
+
+rm $currentdir/elastic_constant/c11/latname.txt
+echo "  $latticename $libraryname  $potdir" >> $currentdir/elastic_constant/c11/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/elastic_constant/c11/jobfile_lammps.sh
+cd $currentdir/elastic_constant/c11; ./jobfile_lammps.sh
+
+
+rm $currentdir/elastic_constant/c12/latname.txt
+echo "  $latticename $libraryname  $potdir" >> $currentdir/elastic_constant/c12/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/elastic_constant/c12/jobfile_lammps.sh
+cd $currentdir/elastic_constant/c12; ./jobfile_lammps.sh
+
+
+rm $currentdir/elastic_constant/c44/latname.txt
+echo "  $latticename $libraryname  $potdir" >> $currentdir/elastic_constant/c44/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/elastic_constant/c44/jobfile_lammps.sh
+cd $currentdir/elastic_constant/c44; ./jobfile_lammps.sh
+
+
+
+
+rm $currentdir/defects/vacancy/latname.txt
+echo "  $latticename $libraryname $potdir" >> $currentdir/defects/vacancy/latname.txt
+sed -i -re "s/bindir/$bindir/g" $currentdir/defects/vacancy/jobfile_lammps.sh
+cd $currentdir/defects/vacancy; ./jobfile_lammps.sh
+
