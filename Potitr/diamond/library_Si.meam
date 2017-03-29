@@ -1,0 +1,8 @@
+# elt        lat     z       ielement     atwt
+# alpha      b0      b1      b2           b3    alat    esub    asub
+# t0         t1              t2           t3            rozero  ibar
+
+'Si'   'dia'   4.      14            28.086
+4.87  4.40   4.9    5.5   5.5  5.431   4.63    1.0
+1.0       2.25     4.47   -1.8         1.0     1
+

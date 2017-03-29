@@ -1,0 +1,45 @@
+thermo_style    custom step atoms pe ke etotal press vol lx ly lz
+thermo_modify   line one format float %.16g
+fix             1 all box/relax iso 0.0 vmax 0.0001
+min_style       cg
+min_modify      line quadratic
+minimize        0.0 0.0 5000 5000
+WARNING: Resetting reneighboring criteria during minimization (../min.cpp:168)
+Neighbor list info ...
+  2 neighbor list requests
+  update every 1 steps, delay 0 steps, check yes
+  master list distance cutoff = 6.8
+Memory usage per processor = 9.28486 Mbytes
+Step Atoms PotEng KinEng TotEng Press Volume Lx Ly Lz 
+       0       54 -208.5809315049881 0 -208.5809315049881 -231909.7252588923 1236.779903376694 10.734063 10.734063 10.734063 
+    4982       54 -257.99716167074 0 -257.99716167074 -195.4185325558824 951.0300017625048 9.834027216200328 9.834027216200328 9.834027216200328 
+Loop time of 4.32265 on 1 procs for 4982 steps with 54 atoms
+
+Minimization stats:
+  Stopping criterion = max force evaluations
+  Energy initial, next-to-last, final = 
+        -208.580931505     -257.996548832     -257.997161671
+  Force two-norm initial, final = 537.059 1.80728
+  Force max component initial, final = 537.059 0.849123
+  Final line search alpha, max atom move = 0.000144012 0.000122283
+  Iterations, force evaluations = 4982 5000
+
+Pair  time (%) = 4.23274 (97.92)
+Neigh time (%) = 0.000185013 (0.00428007)
+Comm  time (%) = 0.0179996 (0.416403)
+Outpt time (%) = 0 (0)
+Other time (%) = 0.0717261 (1.65931)
+
+Nlocal:    54 ave 54 max 54 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    801 ave 801 max 801 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    1728 ave 1728 max 1728 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:  3456 ave 3456 max 3456 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 3456
+Ave neighs/atom = 64
+Neighbor list builds = 1
+Dangerous builds = 0

@@ -1,0 +1,31 @@
+
+E_0		-4.62999999972885944999		(eV/atom)
+a_0		5.42709246147015011985		(angstrom)
+V_0		19.980745		(angstrom^3/atom)
+
+Edia->fcc		771.211812		(meV)
+fcclat		4.2828170786		(angstrom)
+
+Edia->bcc		-147.725216		(meV)
+bcclat		3.2780090721		(angstrom)
+
+Edia->sc		524.479627		(meV)
+sclat		2.7130279064		(angstrom)
+
+Edia->btin		289.251523		(meV)
+btin		5.0649078754		(angstrom)
+
+B_0		96.841153		(GPa)
+E0		-4.629900		(eV/atom)
+Bp		4.267970
+v0		19.981500		(angstrom^3/atom)
+
+E_100		88.091565		(meV/ang2)
+E_110		95.798133		(meV/ang2)
+E_111		78.376264		(meV/ang2)
+
+c11		145.132834		(GPa)
+c12		74.164588		(GPa)
+c44		0.000000		(GPa)
+
+Ev		2.224826		(eV)

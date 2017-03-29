@@ -1,0 +1,58 @@
+# we start with an unrelaxed configuration: first step, minimize with 0 displacement
+clear
+units  metal
+boundary p s p
+atom_style atomic
+#read_data atoms.bcc.perfect.cubic
+
+read_data       datafile
+pair_style meam
+pair_coeff      * * /Users/masud/MD/potentials/library_Si.meam Sidefault1 /Users/masud/MD/potentials/Sidefault1.meam Sidefault1
+
+#pair_style   meam
+#pair_coeff   * * ../../MEAM-POTENTIAL/library.meam Li11 ../../MEAM-POTENTIAL/li11.meam Li11
+
+neighbor  2.0 bin
+neigh_modify delay 0
+
+region lower block INF INF INF 15.361187719 INF INF
+
+#group upper region upper
+group lower region lower
+group upper subtract all lower
+
+displace_atoms lower move  0.0 0. 0. units box
+
+fix 1 upper setforce 0. 0.0 0.
+fix 2 lower setforce 0. 0.0 0.
+
+compute 1 all pe/atom
+compute 3 all reduce sum c_1
+
+dump 1 all custom 100000 dump.1 id type xu y z
+
+#thermo 100
+thermo_style custom step pe pe c_3
+
+variable Nincr equal 150
+variable p1 equal "pe"
+min_style       cg
+minimize 0.0 1.0e-14 100000 100000
+variable p3 equal lx
+variable p4 equal ly
+variable p5 equal lz
+variable p6 equal atoms
+variable p7 equal vol
+
+variable a loop ${Nincr}
+variable p2 equal "v_a*0.1/30.72237543804767767597"
+
+label loop 
+
+displace_atoms lower move  0.0 -0.1 0.0   units box
+min_style       cg
+minimize 0.0 1.0e-14 100000 100000
+print " ${p2} ${p1} ${p3} ${p4} ${p5} ${p6} ${p7}" append EnergyDistance screen no
+
+next a
+jump in.traction loop

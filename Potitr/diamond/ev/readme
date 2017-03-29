@@ -1,0 +1,4 @@
+1) to calculate the e-v curve first find cohesive lattice parameter 
+2) change the potentials file name and set the name in latticename correctly
+3) change in jobfile_lammps.sh initials guess of e0, b0, bp, v0 in jobfile_lammps.sh if necessary
+4) run jobfile_lammps.sh

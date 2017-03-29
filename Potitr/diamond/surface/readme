@@ -1,0 +1,6 @@
+1) use cohesive latticeparameter , so run cohesive calcualtion before
+2) change potentials fiel
+3) check the size dependence with declare array and uncoment sed
+4) size can be changed in main file
+5) unit change in postprocess file
+

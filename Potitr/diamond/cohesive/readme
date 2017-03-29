@@ -1,0 +1,7 @@
+1) by running the jobfile_lammps.sh , cohesive energy of bcc material will be calcualted
+2) first edit the jobfile_lammps.sh with desired lattice parameter and lattice name
+3) see the consistency of latticename with potentials file name in the potentials file in potentials directory
+4) if u want to chage the number of duplicttes change in main.c file and change in postprocess.c file
+5) run jobfile_lammps.sh that will create output file 
+6) save output file in your desired directory
+

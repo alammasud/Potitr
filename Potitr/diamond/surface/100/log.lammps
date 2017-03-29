@@ -1,0 +1,16 @@
+LAMMPS (10 Feb 2015)
+clear
+units           metal
+boundary        p p s
+atom_style      atomic
+read_data       datafile
+  orthogonal box = (0 0 0) to (5.431 5.431 54.31)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  80 atoms
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Si.meam Si /Users/masud/MD/potentials/Si.meam  Si
+neighbor        2.0 bin
+neigh_modify    delay 10
+dump            1 all custom 100000 dump id type x y z fx fy fz
+log             log

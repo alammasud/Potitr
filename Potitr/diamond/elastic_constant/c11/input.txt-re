@@ -1,0 +1,15 @@
+units           metal
+boundary        p p p
+atom_style      atomic
+read_data       datafile
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Si.meam Si /Users/masud/MD/potentials/Si.meam  Si
+neighbor        2.0 bin
+neigh_modify    delay 10
+dump            1 all custom 100000 dump id type x y z fx fy fz
+log             log
+thermo_style    custom step atoms pe ke etotal press vol lx ly lz
+thermo_modify   line one format float %.16g
+min_style       cg
+min_modify      line quadratic
+minimize        0.0 0.0 5000 5000

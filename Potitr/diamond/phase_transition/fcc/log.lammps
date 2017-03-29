@@ -1,0 +1,17 @@
+LAMMPS (10 Feb 2015)
+units           metal
+boundary        p p p
+atom_style      atomic
+read_data       datafile
+  orthogonal box = (0 0 0) to (13.7102 13.7102 13.7102)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  108 atoms
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/librarysinew.meam Sidefault4 /Users/masud/MD/potentials/Sidefault4.meam  Sidefault4
+Reading potential file /Users/masud/MD/potentials/librarysinew.meam with DATE: 2012-06-29
+Reading potential file /Users/masud/MD/potentials/Sidefault4.meam with DATE: 2007-06-11
+neighbor        2.0 bin
+neigh_modify    delay 10
+dump            1 all custom 1000000 dump id type x y z fx fy fz
+log             log

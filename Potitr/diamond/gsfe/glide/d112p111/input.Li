@@ -1,0 +1,34 @@
+variable aaa index   "0.0" "0.5"
+label aaa
+clear
+variable a equal 3.51
+variable ax equal  sqrt(6)*${a}*5
+variable ay equal  sqrt(2)*${a}*60
+variable az equal  sqrt(3)*${a}*5*0.5
+variable halfay equal ${ay}*0.5
+
+units           metal
+boundary        p s p
+atom_style      atomic
+read_data       datafile
+pair_style      meam
+pair_coeff      * * /home/masud/job/potentials/library_Li.meam Li /home/masud/job/potentials/Li.meam Li
+region 1 block 0.0 ${ax}    0  ${halfay}    0.0 ${az}
+region 2 block 0.0 ${ax}    ${halfay}  ${ay}       0.0  ${az}
+group bot region 1
+group top region 2
+displace_atoms top move 0.0 0.0 ${aaa}
+neighbor        2.0 bin
+neigh_modify    delay 10
+fix 1 all setforce 0 NULL 0
+dump            1 all custom 1 dump id type x y z
+thermo_style    custom step atoms pe ke etotal press vol lx ly lz 
+thermo_modify   line one format float %.16g
+min_style       cg
+min_modify      line quadratic
+minimize        0.5.0e0 0.5e0 1000 1000
+
+undump 1
+next aaa
+jump input.Li aaa
+
