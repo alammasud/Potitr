@@ -1,0 +1,30 @@
+
+E_0		-1.64994897692396813582		(eV/atom)
+a_0		3.48728043646271235190		(angstrom)
+V_0		21.204626		(angstrom^3/atom)
+
+Ebcc->fcc		0.997835		(meV/atom)
+fcclat		4.3895201247		(angstrom)
+
+Ebcc->dia		441.310443		(meV/atom)
+Ebcc->sc		171.290863		(meV/atom)
+E_bcc->hcp		1.508876		(meV/atom)
+
+B_0		13.682427		(GPa)
+E0		-1.649950		(eV/atom)
+Bp		3.462470
+v0		21.202000		(angstrom^3/atom)
+
+E_100		27.277043		(meV/ang2)
+E_110		32.237243		(meV/ang2)
+E_111		29.762204		(meV/ang2)
+
+c11		17.893619		(GPa)
+c12		17.893619		(GPa)
+c44		10.794343		(GPa)
+
+Ev		0.646314		(eV)
+
+fccc11		22.268234		(GPa)
+fccc12		9.183900		(GPa)
+fccc44		0.000000		(GPa)

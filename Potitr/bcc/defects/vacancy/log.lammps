@@ -1,0 +1,20 @@
+LAMMPS (10 Feb 2015)
+clear
+units           metal
+boundary        p p p
+atom_style      atomic
+read_data       datafile
+  triclinic box = (0 0 0) to (27.8982 27.8982 27.8982) with tilt (0 0 0)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1024 atoms
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Li.meam Li /Users/masud/MD/potentials/Li.meam  Li
+group todel id 2
+1 atoms in group todel
+delete_atoms group todel
+Deleted 1 atoms, new total = 1023
+neighbor        2.0 bin
+neigh_modify    delay 10
+dump            1 all custom 1 dump id type x y z
+log             log

@@ -1,0 +1,58 @@
+LAMMPS (10 Feb 2015)
+units           metal
+boundary        p p p
+atom_style      atomic
+read_data       datafile
+  triclinic box = (0 0 0) to (7.25354 7.25354 7.25354) with tilt (0 0 0)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  16 atoms
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Li.meam Li /Users/masud/MD/potentials/Li.meam  Li
+neighbor        2.0 bin
+neigh_modify    delay 10
+dump            1 all custom 1 dump id type x y z
+thermo_style    custom step atoms pe ke etotal press vol lx ly lz
+thermo_modify   line one format float %.16g
+min_style       cg
+min_modify      line quadratic
+minimize        1.0e-12 1.0e-12 100000 1000000
+WARNING: Resetting reneighboring criteria during minimization (../min.cpp:168)
+Neighbor list info ...
+  2 neighbor list requests
+  update every 1 steps, delay 0 steps, check yes
+  master list distance cutoff = 6.8
+Memory usage per processor = 9.21292 Mbytes
+Step Atoms PotEng KinEng TotEng Press Volume Lx Ly Lz 
+       0       16 -26.20873753926954 0 -26.20873753926954 -13201.39417035607 381.6372427231204 7.253544 7.253544 7.253544 
+       1       16 -26.20873753926953 0 -26.20873753926953 -13201.39417035607 381.6372427231204 7.253544 7.253544 7.253544 
+Loop time of 0.000828028 on 1 procs for 1 steps with 16 atoms
+
+Minimization stats:
+  Stopping criterion = quadratic factors are zero
+  Energy initial, next-to-last, final = 
+        -26.2087375393     -26.2087375393     -26.2087375393
+  Force two-norm initial, final = 7.37851e-15 7.83224e-15
+  Force max component initial, final = 2.38785e-15 2.47198e-15
+  Final line search alpha, max atom move = 1 2.47198e-15
+  Iterations, force evaluations = 1 2
+
+Pair  time (%) = 0.00077486 (93.579)
+Neigh time (%) = 0 (0)
+Comm  time (%) = 5.72205e-06 (0.691045)
+Outpt time (%) = 0 (0)
+Other time (%) = 4.74453e-05 (5.72992)
+
+Nlocal:    16 ave 16 max 16 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    325 ave 325 max 325 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    464 ave 464 max 464 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:  928 ave 928 max 928 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 928
+Ave neighs/atom = 58
+Neighbor list builds = 0
+Dangerous builds = 0

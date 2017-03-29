@@ -1,0 +1,18 @@
+
+
+*******************************************************************************
+Wed Mar 29 00:04:01 2017
+
+
+FIT:    data read from "output" using 1:2
+        format = x:z
+        #datapoints = 9
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*x**2 + b*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 1.0455269427e+01   0.00e+00  5.77e-01    1.000000e+00   1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR

@@ -1,0 +1,22 @@
+units           metal
+boundary        s p p
+atom_style      atomic
+read_data       datafile
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Li.meam Li /Users/masud/MD/potentials/Li.meam  Li
+region 1 block 0.00000000000000000000 34.06823063729542866440 0.00000000000000000000 9.86351857808786824933 0.00000000000000000000 6.04014689619438716051
+region 2 block 34.06823063729542866440 68.33646127459086017097 0.00000000000000000000 9.86351857808786824933 0.00000000000000000000 6.04014689619438716051
+group bot region 1
+group top region 2
+displace_atoms top move 0.0 0.0 aaa
+neighbor        2.0 bin
+neigh_modify    delay 10
+fix 1 top setforce NULL 0 0
+fix 2 bot setforce 0 0 0
+dump            1 all custom 1 dump id type x y z
+log             log
+thermo_style    custom step atoms pe ke etotal press vol lx ly lz 
+thermo_modify   line one format float %.16g
+min_style       cg
+min_modify      line quadratic
+minimize        1.0e-12 1.0e-12 100000 1000000

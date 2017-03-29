@@ -1,0 +1,24 @@
+LAMMPS (10 Feb 2015)
+units           metal
+boundary        s p p
+atom_style      atomic
+read_data       datafile
+  orthogonal box = (0 0 0) to (68.3365 9.86352 6.04015)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  192 atoms
+pair_style      meam
+pair_coeff      * *  /Users/masud/MD/potentials/library_Li.meam Li /Users/masud/MD/potentials/Li.meam  Li
+region 1 block 0.00000000000000000000 34.06823063729542866440 0.00000000000000000000 9.86351857808786824933 0.00000000000000000000 6.04014689619438716051
+region 2 block 34.06823063729542866440 68.33646127459086017097 0.00000000000000000000 9.86351857808786824933 0.00000000000000000000 6.04014689619438716051
+group bot region 1
+96 atoms in group bot
+group top region 2
+96 atoms in group top
+displace_atoms top move 0.0 0.0 3.020073
+neighbor        2.0 bin
+neigh_modify    delay 10
+fix 1 top setforce NULL 0 0
+fix 2 bot setforce 0 0 0
+dump            1 all custom 1 dump id type x y z
+log             log
